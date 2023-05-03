@@ -1,0 +1,19 @@
+tml lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Bienvenido al sistema de gestión de impresoras</h1>
+        <div class="options">
+            <a href="{% url 'agregar_impresora' %}" class="button">Agregar impresora</a>
+            <a href="{% url 'vendio_impresora' %}" class="button">Vendió impresora</a>
+            <a href="{% url 'ver_impresoras' %}" class="button">Ver cantidad de impresoras</a>
+            <a href="{% url 'ver_movimientos' %}" class="button">Ver fecha de movimientos</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+{%load static%}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="marca">Marca:</label>
+            <select name="marca" id="marca" class="form-control">
+                {% for marca in marcas %}
+                    <option value="{{ marca.pk }}">{{ marca.nombre }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="modelo">Modelo:</label>
+            <select name="modelo" id="modelo" class="form-control">
+                {% for modelo in modelos %}
+                    <option value="{{ modelo.pk }}">{{ modelo.nombre }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="tipo">Tipo:</label>
+            <select name="tipo" id="tipo" class="form-control">
+                {% for tipo in tipos %}
+                    <option value="{{ tipo.pk }}">{{ tipo.nombre }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="conectividad">Conectividad:</label>
+            <select name="conectividad" id="conectividad" class="form-control">
+                {% for conectividad in conectividades %}
+                    <option value="{{ conectividad.pk }}">{{ conectividad.nombre }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="precio_compra">Precio de compra:</label>
+            <input type="number" name="precio_compra" id="precio_compra" class="form-control" min="0" step="0.01" required>
+        </div>
+        <div class="form-group">
+            <label for="precio_venta">Precio de venta:</label>
+            <input type="number" name="precio_venta" id="precio_venta" class="form-control" min="0" step="0.01" required>
+        </div>
+        <div class="form-group">
+            <label for="estado">Estado:</label>
+            <input type="text" name="estado" id="estado" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="cantidad">Cantidad:</label>
+            <input type="number" name="cantidad" id="cantidad" class="form-control" min="0" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Registrar</button>
+    </form>
+
+</body>
