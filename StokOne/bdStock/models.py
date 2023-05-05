@@ -44,6 +44,11 @@ class IngresoImpresora(models.Model):
     impresora = models.ForeignKey(Impresora, on_delete=models.CASCADE)
     fecha = models.DateTimeField(auto_now_add=True)
     cantidad = models.IntegerField()
+    def save(self, *args, **kwargs):
+        # Incrementa la cantidad de impresoras en la tabla 'Impresora'
+        self.impresora.cantidad += self.cantidad
+        self.impresora.save()
+        super().save(*args, **kwargs)
 
 class VentaImpresora(models.Model):
     impresora = models.ForeignKey(Impresora, on_delete=models.CASCADE)
